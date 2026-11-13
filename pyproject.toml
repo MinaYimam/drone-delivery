@@ -14,7 +14,6 @@ keywords = ["drones", "simulation", "logistics", "routing", "delivery"]
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
-    "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
 dependencies = []
 
