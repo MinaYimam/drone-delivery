@@ -1,0 +1,34 @@
+{
+  "_comment": "Coordinates are km on a flat grid. Rough, illustrative layout of the Twin Cities metro.",
+  "hubs": [
+    { "id": "MPLS", "name": "Minneapolis Hub", "location": { "x": 4.0, "y": 9.0 } },
+    { "id": "STP", "name": "St. Paul Hub", "location": { "x": 15.0, "y": 7.5 } }
+  ],
+  "zones": [
+    { "name": "Airport", "center": { "x": 9.5, "y": 2.0 }, "radius": 2.2 },
+    { "name": "Stadium", "center": { "x": 5.5, "y": 9.8 }, "radius": 0.5 },
+    { "name": "State Capitol", "center": { "x": 14.5, "y": 9.0 }, "radius": 0.6 }
+  ],
+  "drone_defaults": {
+    "speed_kmh": 65,
+    "max_payload_kg": 5,
+    "battery_capacity_wh": 550
+  },
+  "drones": [
+    { "hub": "MPLS", "count": 3 },
+    { "hub": "STP", "count": 2 },
+    { "hub": "STP", "id": "HEAVY-1", "max_payload_kg": 12, "speed_kmh": 45, "battery_capacity_wh": 900 }
+  ],
+  "orders": [
+    { "id": "A1", "pickup": { "x": 4.5, "y": 8.5 }, "dropoff": { "x": 2.0, "y": 12.0 }, "weight_kg": 1.2, "created_at": 0 },
+    { "id": "A2", "pickup": { "x": 15.2, "y": 7.0 }, "dropoff": { "x": 18.0, "y": 4.0 }, "weight_kg": 2.0, "created_at": 60 },
+    { "id": "A3", "pickup": { "x": 7.0, "y": 5.0 }, "dropoff": { "x": 12.0, "y": 1.0 }, "weight_kg": 0.8, "created_at": 120, "priority": 3 },
+    { "id": "A4", "pickup": { "x": 10.0, "y": 8.0 }, "dropoff": { "x": 3.0, "y": 4.0 }, "weight_kg": 3.4, "created_at": 300 },
+    { "id": "A5", "pickup": { "x": 15.0, "y": 7.5 }, "dropoff": { "x": 6.5, "y": 0.5 }, "weight_kg": 9.5, "created_at": 420 },
+    { "id": "A6", "pickup": { "x": 3.0, "y": 10.0 }, "dropoff": { "x": 17.0, "y": 11.0 }, "weight_kg": 1.0, "created_at": 600, "priority": 2 },
+    { "id": "A7", "pickup": { "x": 12.0, "y": 12.0 }, "dropoff": { "x": 8.0, "y": 13.5 }, "weight_kg": 4.2, "created_at": 900 },
+    { "id": "A8", "pickup": { "x": 4.0, "y": 9.0 }, "dropoff": { "x": 9.5, "y": 2.5 }, "weight_kg": 1.0, "created_at": 1000, "_comment": "dropoff is inside the airport zone: will fail" },
+    { "id": "A9", "pickup": { "x": 16.5, "y": 6.0 }, "dropoff": { "x": 13.0, "y": 10.5 }, "weight_kg": 0.5, "created_at": 1200 },
+    { "id": "A10", "pickup": { "x": 1.0, "y": 6.0 }, "dropoff": { "x": 19.0, "y": 13.0 }, "weight_kg": 25, "created_at": 1500, "_comment": "too heavy for any drone: will fail" }
+  ]
+}

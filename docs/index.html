@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SkyDrop · Drone Delivery Simulator</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M8 0l8 8-8 8-8-8z' fill='%2338bdf8'/></svg>" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="logo">◆</span>
+      <div>
+        <h1>SkyDrop</h1>
+        <p>Drone delivery fleet simulator</p>
+      </div>
+    </div>
+    <div class="controls">
+      <button id="play" class="primary">Pause</button>
+      <label>Speed
+        <select id="speed">
+          <option value="10">10×</option>
+          <option value="30" selected>30×</option>
+          <option value="60">60×</option>
+          <option value="120">120×</option>
+        </select>
+      </label>
+      <label>Drones <input id="drones" type="range" min="1" max="16" value="6" /><span id="dronesVal">6</span></label>
+      <label>Orders/hr <input id="rate" type="range" min="0" max="120" value="40" /><span id="rateVal">40</span></label>
+      <button id="reset">Reset</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="map-wrap">
+      <canvas id="map"></canvas>
+      <div class="hint" id="hint">Click the map to set a <b>pickup</b>, then click again for the <b>dropoff</b>.</div>
+      <div class="legend">
+        <span><i class="dot hub"></i>Hub</span>
+        <span><i class="dot zone"></i>No-fly zone</span>
+        <span><i class="dot pickup"></i>Pickup</span>
+        <span><i class="dot dropoff"></i>Dropoff</span>
+      </div>
+    </section>
+
+    <aside>
+      <div class="clock" id="clock">00:00</div>
+      <div class="stats">
+        <div><b id="sDelivered">0</b><span>delivered</span></div>
+        <div><b id="sActive">0</b><span>in flight</span></div>
+        <div><b id="sPending">0</b><span>waiting</span></div>
+        <div><b id="sAvg">–</b><span>avg min</span></div>
+      </div>
+      <h2>Fleet</h2>
+      <ul id="fleet"></ul>
+      <h2>Activity</h2>
+      <ul id="log"></ul>
+    </aside>
+  </main>
+
+  <footer>
+    The Python engine and this demo share the same routing &amp; dispatch logic.
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
